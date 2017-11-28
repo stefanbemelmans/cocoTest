@@ -5,4 +5,4 @@ In our Materials Marketplace we have many different companies all looking for th
 
 Please use the following as sample data:
 
-!(https://github.com/stefanbemelmans/cocoTest/blob/master/InterviewQuestionExample.PNG)
+![datapic](https://github.com/stefanbemelmans/cocoTest/blob/master/InterviewQuestionExample.PNG)
