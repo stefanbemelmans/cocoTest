@@ -78,6 +78,41 @@ let comps = [
     }
     
   }
+
+  //insight at 4am, starting to get a little turned around. Need to fallback and regroup
+  if(max < 10){
+    if( max % 2 === 0  ){
+    
+      let total = 0;
+      
+     for(let i = 1; i <= filComps.length /2; i++){
+       if(filComps[i].amt + filComps[i+1].amt <= max){
+         console.log("middle of the function");
+         filComps2.push({comp: filComps[i],
+                       comp2: filComps[i+1],
+                       total: filComps[i].amt + filComps[i+1].amt,
+                       totPrice: filComps[i].price + filComps[i+1].price
+                         
+         })
+   }
+ }
+    }
+  }
+   console.log(filComps2, "filComps2")
+   for(let i = 0; i < filComps.length/2; i++){
+     for(let j = filComps.length-1; j > i; j--){
+        if(filComps[i].amt + filComps[j].amt === max){
+          choices.push({comp: filComps[i],
+                       comp2: filComps[j],
+                       total: filComps[i].amt + filComps[j].amt,
+                       totPrice: filComps[i].price + filComps[j].price
+                         
+                         
+          })
+       
+     }
+     }
+   }
   //I like to brute force first to ensure functionality then refactor later. 
     
   // if(stuff >= comps[lastElem].amt){
