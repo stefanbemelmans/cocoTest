@@ -64,42 +64,75 @@ let comps = [
   // let lastElem = comps.length-1;
   // console.log(lastElem);
   // let max=stuff;
+  
   let choices = [];
+  console.log(comps);
   function maxAmtValue(comps, stuff) {
     let compsVal = Array(stuff + 1).fill(0);
-    console.log(comps, stuff, compsVal)
+    //console.log(comps, stuff, compsVal)
     for (let curAmt= 0; curAmt <= stuff; curAmt++) {
       
       let bestPrice = 0;
-      console.log(curAmt, " current amount");
+      //console.log(curAmt, " current amount");
       comps.forEach(comp => {
-        console.log(comp);
+        //console.log(comp);
         if (comp.amt <= curAmt) {
           
-          console.log(comp.amt +" amt,"+" curPrice: ", comp.price,"currentamt ",curAmt);
-          console.log(comps[[curAmt - comp.amt]], "current company value");
+          // console.log(comp.amt +" amt,"+" curPrice: ", comp.price,"currentamt ",curAmt);
+          // console.log(comps[[curAmt - comp.amt]], "current company value");
           
          
           let maxPrice = comp.price + compsVal[curAmt - comp.amt];
           
-          console.log(maxPrice,"max")
+          //console.log(maxPrice,"max")
           bestPrice = Math.max(maxPrice, bestPrice );
         }
       });
-      console.log(bestPrice," bestPrice")
-      console.log(comps[curAmt], "hi");
+      // console.log(bestPrice," bestPrice")
+      // console.log(comps[curAmt], "hi");
       compsVal[curAmt] = bestPrice;
-      console.log(compsVal,"compsVal" );
+      // console.log(compsVal,"compsVal" );
     }
+    return compsVal[stuff];
+  }
+  
+  console.log(maxAmtValue(comps, 12)+"checkit");
+  let price = maxAmtValue(comps, 12);
 
-
-    // let ar = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    
-    // let amt = 15;
-    
+   for(let i= 0; i<comps.length; i++){
+    for(let j= i+1, n = comps.length-1; j<n; j++, n--){
+      if(comps[i].price + comps[j].price +comps[n].price <= price && comps[i].amt + comps[j].amt + comps[n].amt === 12){
+        console.log("yes")
+        console.log(comps[i].price,comps[j].price,comps[n].price);
+        choices.push([comps[i],comps[j],comps[n]]);
+      }
+    }
+  }
+  
+  for(let i= 0; i<comps.length; i++){
+    for(let n = comps.length-1; n>i;  n--){
+      if(comps[i].price +comps[n].price <= price && comps[i].amt + comps[n].amt === 12){
+        console.log("yes")
+        console.log(comps[i],comps[n]);
+        choices.push([comps[i],comps[n]]);
+      }
+    }
+  }
+  
    
 
-   // console.log(choices, "unfiltered");
+   console.log(choices, "unfiltered");
+
+   let most =0;
+   let choice;
+   for(let x = 0; x < choices.length; x ++) {
+     if(choices[x][0].price + choices[x][1].price > most){
+       most = choices[x][0].price + choices[x][1].price;
+       choice = choices[x];
+       console.log(most, "  most", choice, "  choice");
+     } 
+   }
+
     // let amount = compsVal[stuff];
     // choice.filter(x => )
     //knew the right company had to be somwhere,
@@ -129,26 +162,46 @@ let comps = [
     // });
     //console.log(fewerChoices, " fewerChoices");
     //console.log(newAr," newar")
-    return compsVal[stuff];
-  }
   
-  console.log(maxAmtValue(comps, 12)+"checkit");
-  let price = maxAmtValue(comps, 12);
+//got the number of highest price, now to determine what companies paid,
+// and thinking i can do it all in one fell swoop without the initial function. 
 
-  for(let i= 0, n=comps.length-1; i< comps.length; n--, i++){
-    let j= i+1;
-    //let n= comps.length-1;
-    if(comps[i].price + comps[j].price +comps[n].price=== price){
-      console.log("yes")
-      console.log(comps[i],comps[j],comps[n]);
-    choices.push(comps[i],comps[j],comps[n]);
+  // for(let i= 0; i<comps.length; i++){
+  //   for(let j= i+1, n = comps.length-1; j<n; j++, n--){
+  //     if(comps[i].price + comps[j].price +comps[n].price === price){
+  //       console.log("yes")
+  //       console.log(comps[i],comps[j],comps[n]);
+  //       choices.push(comps[i],comps[j],comps[n]);
+  //     }
+  //   }
+  // }
+
+
+
+  // for(let i= 0, n=comps.length-1; i<comps.length/2; n--, i++){
+  //   let j= i+1;
+  //   for(let k = 0; k<)
+  //   if(comps[i].price + comps[j].price +comps[n].price === price){
+  //     console.log("yes")
+  //     console.log(comps[i],comps[j],comps[n]);
+  //   choices.push(comps[i],comps[j],comps[n]);
       
-    }
-    
-   
-  }
+  //   }}
 
-console.log(choices,"  choices new");
+//     if (choices.length===0){
+//     for(let i= 0, n=comps.length-1; i< comps.length; n--, i++){
+      
+//       //let n= comps.length-1;
+//       if(comps[i].price + +comps[n].price === price){
+//         console.log("yes")
+//         console.log(comps[i],comps[n]);
+//       choices.push(comps[i],comps[n]);
+        
+//       }
+//     }
+//   }
+  
+// console.log(choices,"  choices new");
 
 // This is a great learning experience, I always start with methods similar to below, 
 // knowing in my head that there is a more better way to represent it
