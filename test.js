@@ -66,73 +66,77 @@ let comps = [
   // let max=stuff;
   
   let choices = [];
-  console.log(comps);
-  function maxAmtValue(comps, stuff) {
-    let compsVal = Array(stuff + 1).fill(0);
+  // console.log(comps);
+  // function maxAmtValue(comps, stuff) {
+  //   let compsVal = Array(stuff + 1).fill(0);
     //console.log(comps, stuff, compsVal)
-    for (let curAmt= 0; curAmt <= stuff; curAmt++) {
+    // for (let curAmt= 0; curAmt <= stuff; curAmt++) {
       
-      let bestPrice = 0;
+    //   let bestPrice = 0;
       //console.log(curAmt, " current amount");
-      comps.forEach(comp => {
+      // comps.forEach(comp => {
         //console.log(comp);
-        if (comp.amt <= curAmt) {
+        // if (comp.amt <= curAmt) {
           
           // console.log(comp.amt +" amt,"+" curPrice: ", comp.price,"currentamt ",curAmt);
           // console.log(comps[[curAmt - comp.amt]], "current company value");
           
          
-          let maxPrice = comp.price + compsVal[curAmt - comp.amt];
+          // let maxPrice = comp.price + compsVal[curAmt - comp.amt];
           
           //console.log(maxPrice,"max")
-          bestPrice = Math.max(maxPrice, bestPrice );
-        }
-      });
+          // bestPrice = Math.max(maxPrice, bestPrice );
+      //   }
+      // });
       // console.log(bestPrice," bestPrice")
       // console.log(comps[curAmt], "hi");
-      compsVal[curAmt] = bestPrice;
+      // compsVal[curAmt] = bestPrice;
       // console.log(compsVal,"compsVal" );
-    }
-    return compsVal[stuff];
-  }
+  //   }
+  //   return compsVal[stuff];
+  // }
   
-  console.log(maxAmtValue(comps, 12)+"checkit");
-  let price = maxAmtValue(comps, 12);
-
+  // console.log(maxAmtValue(comps, 12)+"checkit");
+  // let price = maxAmtValue(comps, 12);
+//   function bestChoice(comps, amt) {
+// //  if(amt < 10){}
+// comps[i].price + comps[j].price +comps[n].price <= price && 
+function checkMatches(comps, amt){
    for(let i= 0; i<comps.length; i++){
     for(let j= i+1, n = comps.length-1; j<n; j++, n--){
-      if(comps[i].price + comps[j].price +comps[n].price <= price && comps[i].amt + comps[j].amt + comps[n].amt === 12){
+      if(comps[i].amt + comps[j].amt + comps[n].amt === amt){
         console.log("yes")
         console.log(comps[i].price,comps[j].price,comps[n].price);
         choices.push([comps[i],comps[j],comps[n]]);
       }
     }
-  }
-  
+   }
+  // comps[i].price +comps[n].price <= price && 
   for(let i= 0; i<comps.length; i++){
     for(let n = comps.length-1; n>i;  n--){
-      if(comps[i].price +comps[n].price <= price && comps[i].amt + comps[n].amt === 12){
+      if(comps[i].amt + comps[n].amt === 12){
         console.log("yes")
         console.log(comps[i],comps[n]);
         choices.push([comps[i],comps[n]]);
       }
     }
   }
-  
-   
-
    console.log(choices, "unfiltered");
-
+   
    let most =0;
    let choice;
+  
    for(let x = 0; x < choices.length; x ++) {
-     if(choices[x][0].price + choices[x][1].price > most){
+     console.log(choices[x]);
+     for(let i = 0; i < choices[x].length; i)
+     if(choices[x][i].price + choices[x][i].price > most){
        most = choices[x][0].price + choices[x][1].price;
        choice = choices[x];
        console.log(most, "  most", choice, "  choice");
      } 
    }
-
+   }
+  checkMatches(comps, 15);
     // let amount = compsVal[stuff];
     // choice.filter(x => )
     //knew the right company had to be somwhere,
