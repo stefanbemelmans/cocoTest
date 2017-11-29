@@ -59,47 +59,47 @@ let comps = [
   // let one = {
   //   thing:{name: 4, other: "toms"}
   // }
-  console.log(comps);
-   let stuff = 8;
-  let lastElem = comps.length-1;
-  console.log(lastElem);
-  let max=stuff;
+  // console.log(comps);
+  //  let stuff = 8;
+  // let lastElem = comps.length-1;
+  // console.log(lastElem);
+  // let max=stuff;
   
   let choices = [];
   
   function maxAmtValue(comps, stuff) {
-    let curMaxVal = Array(stuff + 1).fill(0);
-    console.log(comps, stuff, maxCompVal)
+    let compsVal = Array(stuff + 1).fill(0);
+    console.log(comps, stuff, compsVal)
     for (let curAmt= 0; curAmt <= stuff; curAmt++) {
       
-      let maxValue = 0;
+      let bestPrice = 0;
       
       comps.forEach(comp => {
         console.log(comp);
         if (comp.amt <= curAmt) {
-          console.log(comp.amt +" amt, curcap: "+ curAmt)
+          console.log(comp.amt +" amt, curcap: "+ comp.price)
+          console.log(compsVal[curAmt - comp.amt], "current company value")
+          let maxPrice = comp.price + compsVal[curAmt - comp.amt];
           
-          let max = comp.price + maxCompVal[curAmt - comp.amt];
-          
-          console.log(max,"max")
-          maxValue = Math.max(max, maxValue);
+          //console.log(max,"max")
+          bestPrice = Math.max(maxPrice, bestPrice );
         }
       });
       
-      maxCompVal[curAmt] = maxValue;
-      console.log(maxCompVal,"maxCompVal" );
+      compsVal[curAmt] = bestPrice;
+      console.log(compsVal,"compsVal" );
     }
     
-    return maxCompVal[max];
+    return compsVal[stuff];
   }
   
-  console.log(maxAmtValue(comps, 15)+"checkit");
+  console.log(maxAmtValue(comps, 8)+"checkit");
 
 // This is a great learning experience, I always start with methods similar to below, 
 // knowing in my head that there is a more better way to represent it
 // but am unable to put my finger on it exactly. Then I get all turned around in nested and dependant for-loops and take a step back. 
 // I've often found that overthinking is my worst enemy when working on a solution.   
-// I looked for reference and came across "https://repl.it/@ianaandrychowicz/cake-thief--reference"
+// I looked for reference and came across "https://repl.it/@ianaandrychowicz/cake-thief"
 // which was essentially exactly what I was thinking about. 
 
   // for(let i = lastElem; i >= 0; i --){
