@@ -65,35 +65,67 @@ let comps = [
   // console.log(lastElem);
   // let max=stuff;
   
-  let choices = [];
-  
   function maxAmtValue(comps, stuff) {
     let compsVal = Array(stuff + 1).fill(0);
     console.log(comps, stuff, compsVal)
     for (let curAmt= 0; curAmt <= stuff; curAmt++) {
       
       let bestPrice = 0;
-      
+      console.log(curAmt, " current amount");
       comps.forEach(comp => {
         console.log(comp);
         if (comp.amt <= curAmt) {
-          console.log(comp.amt +" amt, curcap: "+ comp.price)
-          console.log(compsVal[curAmt - comp.amt], "current company value")
+          
+          console.log(comp.amt +" amt,"+" curPrice: ", comp.price,"currentamt ",curAmt);
+          console.log(comps[[curAmt - comp.amt]], "current company value");
+          
+         
           let maxPrice = comp.price + compsVal[curAmt - comp.amt];
           
-          //console.log(max,"max")
+          console.log(maxPrice,"max")
           bestPrice = Math.max(maxPrice, bestPrice );
         }
       });
-      
+      console.log(bestPrice," bestPrice")
+      console.log(comps[curAmt], "hi");
       compsVal[curAmt] = bestPrice;
       console.log(compsVal,"compsVal" );
     }
+    console.log(choices, "unfiltered");
+    // let amount = compsVal[stuff];
+    // choice.filter(x => )
+    //knew the right company had to be somwhere,
+    //think i have it, just need to filter and reduce
     
+    choices.sort();
+    console.log(choices," sort")
+    
+   let fewChoices = choices.filter(x => x);
+      
+    fewChoices = fewChoices.filter(x => x.amt<= stuff)
+    console.log(fewChoices, " filtered");
+    let fewerChoices = fewChoices.sort(); 
+    let newAr = [];
+    for(let i = 0; i< fewerChoices.length; i ++){
+    
+      if(newAr.includes(fewerChoices[i])===false){
+        newAr.push(fewerChoices[i]);
+      }
+    }
+      // } fewChoices.filter(x =>{
+      
+    // if(!fewerChoices.includes(x)){
+    // return x; 
+    // }
+    // });
+    console.log(fewerChoices, " fewerChoices");
+    console.log(newAr," newar")
     return compsVal[stuff];
   }
   
-  console.log(maxAmtValue(comps, 8)+"checkit");
+  console.log(maxAmtValue(comps, 12)+"checkit");
+
+
 
 // This is a great learning experience, I always start with methods similar to below, 
 // knowing in my head that there is a more better way to represent it
