@@ -184,15 +184,15 @@ checkMatches(newcompanies, stuff)
     let most =0;
     let choice;
    
-   choice = choices.forEach(x => {
+   choices = choices.forEach(x => {
      console.log(x.total)
      if(x.total > most){
-       most = x.total;
+       choice = x;
        console.log(most)
      }
-      
-   })
-   console.log(most," choice");
+     
+    })
+   console.log(most,choice," choice");
   choice = choices.find(x => x.total === most)
   // choices.map(x => {
   //   x.reduce((a, b) => a + b.price);
