@@ -57,13 +57,26 @@ let companies = [
 // the fourth one is elusive. I'm going to work it so the three is all I need. 
 let stuff = 24;
 let newcompanies = [];
+let select;
 // while(stuff>=0){
   if(stuff>=10){
+    choices.push(companies.filter(x => x.amount === 10));
      newcompanies = companies.filter(x => x.amount !== 10);
     stuff=stuff-10;
-    console.log(stuff, newcompanies);
-}
-console.log(newcompanies, "newcompanies again")
+    console.log(stuff,"stuff newcompanies: ",newcompanies);
+    console.log(choices, " so far");
+  }
+  if(stuff >= 5){
+    choices.push(newcompanies.filter(x => x.amount === 2));
+    choices.push(newcompanies.filter(x => x.amount === 3));
+  
+  newcompanies = newcompanies.filter(x => x.amount !== 2);
+  newcompanies = newcompanies.filter(x => x.amount !== 3);
+  stuff = stuff-5;
+  console.log(stuff, "current stuff after 5 and the companies left: ", newcompanies);
+  console.log(choices, "the choices for companies so far");
+  }
+
 checkMatches(newcompanies, stuff)
 
 
