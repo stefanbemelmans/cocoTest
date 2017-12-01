@@ -13,7 +13,7 @@ Hello!
 I tried to complete a functional webpage but ran out of time. the script is fuctional and runs in the console.
 
 stuff is the variable to change the input.
-
+choice is the result.
 Thanks, and please enjoy, the best I could do in about 25ish hours. It was truly a pleasure.
 
 -S
