@@ -6,3 +6,14 @@ In our Materials Marketplace we have many different companies all looking for th
 Please use the following as sample data:
 
 ![datapic](https://github.com/stefanbemelmans/cocoTest/blob/master/InterviewQuestionExample.PNG)
+
+
+Hello!
+
+I tried to complete a functional webpage but ran out of time. the script is fuctional and runs in the console.
+
+stuff is the variable to change the input.
+
+Thanks, and please enjoy, the best I could do in about 25ish hours. It was truly a pleasure.
+
+-S
