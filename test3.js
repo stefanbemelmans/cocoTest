@@ -53,27 +53,28 @@ let companies = [
   ];
 
   let choices = [];
-  let stuff = 9;
+  let stuff = 9; //change this to test
 let newcompanies = companies;
 let select=[];
 
-document.getElementById("amount").onclick = runIt;
+//tried to make a functional page but ran out of time
+// document.getElementById("amount").onclick = runIt;
 
-function runIt(e) {
+// function runIt(e) {
   
-  stuff = document.getElementById("number").value;
+//   stuff = document.getElementById("number").value;
   
-  let results = checkMatches(newcompanies, stuff);
-  document.getElementById('results').innerHTML=`${results}`;
+//   let results = checkMatches(newcompanies, stuff);
+//   document.getElementById('results').innerHTML=`${results}`;
   
-  for(let result in results){
-    console.log(result);
-      console.log(Object.values(result));
-    }
+//   for(let result in results){
+//     console.log(result);
+//       console.log(Object.values(result));
+//     }
     
-  };
+//   };
 
-  document.getElementById('results').innerHTML=`${results}`;
+//   document.getElementById('results').innerHTML=`${results}`;
  
   
 
@@ -85,7 +86,7 @@ checkMatches(newcompanies, stuff)
       let prod = amount;
       let len = coss.length;
       console.log(half);
-
+//I know there is optimization to be done.
         //tryin to grab 4 digit combos
       for(let x= 0; x <coss.length; x++){
         console.log("trxng two and three")
