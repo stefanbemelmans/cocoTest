@@ -54,7 +54,7 @@ let companies = [
 
   let choices = [];
 //alright, another change in direction. go with what you know. I got the loop with three iterators working
-// the fourth one is elusive. I'm going to work it so the three is all I need. 
+// the fourth one is elusive no longer.
 let stuff = 9;
 let newcompanies = companies;
 let select=[];
@@ -212,16 +212,17 @@ checkMatches(newcompanies, stuff)
     let most =0;
     let choice;
    
-   choices = choices.forEach(x => {
+   let highest = choices.filter(x => {
      console.log(x.total)
      if(x.total > most){
+       most = x.total;
        choice = x;
        console.log(most)
      }
      
     })
    console.log(most,choice," choice");
-  choice = choices.find(x => x.total === most)
+  // choice = choices.find(x => x.total === most)
   // choices.map(x => {
   //   x.reduce((a, b) => a + b.price);
   // })
