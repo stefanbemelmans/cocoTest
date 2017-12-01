@@ -57,6 +57,26 @@ let companies = [
 let newcompanies = companies;
 let select=[];
 
+document.getElementById("amount").onclick = runIt;
+
+function runIt(e) {
+  
+  stuff = document.getElementById("number").value;
+  
+  let results = checkMatches(newcompanies, stuff);
+  document.getElementById('results').innerHTML=`${results}`;
+  
+  for(let result in results){
+    console.log(result);
+      console.log(Object.values(result));
+    }
+    
+  };
+
+  document.getElementById('results').innerHTML=`${results}`;
+ 
+  
+
 checkMatches(newcompanies, stuff)
 
 
