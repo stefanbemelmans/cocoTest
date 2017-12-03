@@ -70,7 +70,8 @@ let select=[];
 //   for(let result in results){
 //     console.log(result);
 //       console.log(Object.values(result));
-//     }
+//     } newResults = JSON.stringify(results, null, 4); // (Optional) beautiful indented output.*stackoverflow*
+//  console.log(newResults); 
     
 //   };
 
@@ -89,7 +90,7 @@ checkMatches(newcompanies, stuff)
 //I know there is optimization to be done.
         //tryin to grab 4 digit combos
       for(let x= 0; x <coss.length; x++){
-        console.log("trxng two and three")
+        console.log("trxng two and three")// need to fix z overlap
           for(let j = x+1, n =len-1; n>j; n --){//this line was key in understanding and functionality. j is relational to x as z is to n, sort of see it all fit together.
             let z= n-1
             if(coss[x].amount + coss[j].amount + coss[z].amount + coss[n].amount === amount){
