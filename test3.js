@@ -51,13 +51,13 @@ let companies = [
     price: 30
   }
   ];
-
+  let newResults;
   let choices = [];
-  let stuff = 9; //change this to test
+  let stuff = 22; //change this to test
 let newcompanies = companies;
 let select=[];
 
-//tried to make a functional page but ran out of time
+//tried to make a functional page but ran out of time, still working on it after the fact.
 // document.getElementById("amount").onclick = runIt;
 
 // function runIt(e) {
@@ -65,24 +65,25 @@ let select=[];
 //   stuff = document.getElementById("number").value;
   
 //   let results = checkMatches(newcompanies, stuff);
-//   document.getElementById('results').innerHTML=`${results}`;
+ 
   
 //   for(let result in results){
 //     console.log(result);
 //       console.log(Object.values(result));
-//     } newResults = JSON.stringify(results, null, 4); // (Optional) beautiful indented output.*stackoverflow*
+//     }
+//   newResults = JSON.stringify(results, null, 4); // (Optional) beautiful indented output.*stackoverflow*
 //  console.log(newResults); 
     
 //   };
 
-//   document.getElementById('results').innerHTML=`${results}`;
+//   document.getElementById('results').innerHTML= newResults;
  
   
 
 checkMatches(newcompanies, stuff)
 
 
-    function checkMatches(coss, amount){
+    function checkMatches(coss, goods){
       let half = amount/2;
       let prod = amount;
       let len = coss.length;
@@ -93,7 +94,7 @@ checkMatches(newcompanies, stuff)
         console.log("trxng two and three")// need to fix z overlap
           for(let j = x+1, n =len-1; n>j; n --){//this line was key in understanding and functionality. j is relational to x as z is to n, sort of see it all fit together.
             let z= n-1
-            if(coss[x].amount + coss[j].amount + coss[z].amount + coss[n].amount === amount){
+            if(coss[x].amount + coss[j].amount + coss[z].amount + coss[n].amount === goods){
               console.log("yesfor4")
               let sum = coss[x].price + coss[j].price + coss[n].price + coss[n-1].price;
               console.log(coss[x].price,coss[j].price,coss[n].price);
@@ -112,7 +113,7 @@ checkMatches(newcompanies, stuff)
         console.log("trxng two and three")
           for(let j = x+1, n =len-1; n>j; n --){
         
-            if(coss[x].amount + coss[j].amount + coss[n].amount === amount){
+            if(coss[x].amount + coss[j].amount + coss[n].amount === goods){
               console.log("yesfor4")
               let sum = coss[x].price + coss[j].price + coss[n].price + coss[n-1].price;
               console.log(coss[x].price,coss[j].price,coss[n].price);
@@ -129,7 +130,7 @@ checkMatches(newcompanies, stuff)
 
    for(let i= 0; i<coss.length; i++){
      for(let n = coss.length-1; n>i;  n--){
-       if(coss[i].amount + coss[n].amount === amount){
+       if(coss[i].amount + coss[n].amount === goods){
          console.log("yes")
          console.log(coss[i],coss[n]);
          let sum = coss[i].price + coss[n].price; 
@@ -142,7 +143,7 @@ checkMatches(newcompanies, stuff)
    }
    for(let i= 0; i<coss.length; i++){
     
-       if(coss[i].amount === amount){
+       if(coss[i].amount === goods){
          console.log("yes")
          console.log(coss[i]);
         let sum = coss[i].price; 
